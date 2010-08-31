@@ -1,0 +1,37 @@
+es-PE:
+  devise:
+    failure:
+      unauthenticated: 'Necesita iniciar sesión o registrarse para continuar.'
+      unconfirmed: 'Necesita confirmar su cuenta para continuar.'
+      locked: 'Su cuenta está bloqueada.'
+      invalid: 'Email o clave no correcta.'
+      invalid_token: 'Autenticación errónea.'
+      timeout: 'Su sesión expiró. Por favor inicie seción para continuar.'
+      inactive: 'Su cuenta aún no ha sido activada.'
+    sessions:
+      signed_in: 'Inició sesión correctamente.'
+      signed_out: 'Ha cerrado la sesión.'
+    passwords:
+      send_instructions: 'Recibirá un email con instrucciones para restaurar su clave.'
+      updated: 'Su clave ha sido cambiada. Ha iniciado sesión.'
+    confirmations:
+      send_instructions: 'Recibirá un email con instrucciones para confirmar su cuenta.'
+      confirmed: 'Su cuenta ha sido confirmada. Ha iniciado sesión.'
+    registrations:
+      signed_up: 'Ha creado su cuenta. Una confirmación ha sido enviada a su email.'
+      updated: 'Ha actualizado su cuenta.'
+      destroyed: '¡Adiós! Su cuenta ha sido cancelada. Esperamos vuelva pronto.'
+    unlocks:
+      send_instructions: 'Recibirá un email para desbloquear su cuenta en algunos minutos'
+      unlocked: 'Su cuenta ha sido desbloqueada. Ha iniciado sesión.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones para confirmar su cuenta'
+      reset_password_instructions:
+        subject: 'Instrucciones para cambiar su clave'
+      unlock_instructions:
+        subject: 'Instrucciones para desbloquear su cuenta'
+
+    facebook_consumer:
+      user:
+        signed_in: 'Inició sesión correctamente'

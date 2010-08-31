@@ -1,0 +1,52 @@
+es:
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 error impide que {{model}} se registre"
+          other: "{{count}} errores impiden que {{model}} sea registrado"
+        body:    "Se encontraron errores con:"
+    models:
+      profile: "Perfil"
+    attributes:
+      profile:
+        last_name: 'Apellidos'
+        first_name: 'Nombre'
+        gender: 'Sexo'
+        birthday: 'F. nacimiento'
+        work_id: 'Empresa o trabajo'
+        title: "Cargo"
+        about: "Ahora estoy..."
+        function: "Área funcional"
+        level: "nivel jerárquico"         
+
+
+        
+# Append your own errors here or at the model/attributes scope.
+
+# You can define own errors for models or model attributes.
+# The values :model, :attribute and :value are always available for interpolation.
+#
+# For example,
+#   models:
+#     user:
+#       blank: "This is a custom blank message for %{model}: %{attribute}"
+#       attributes:
+#         login:
+#           blank: "This is a custom blank message for User login"
+# Will define custom blank validation message for User model and
+# custom blank validation message for login attribute of User model.
+#models:
+
+# Translate model names. Used in Model.human_name().
+#models:
+# For example,
+#   user: "Dude"
+# will translate User model name to "Dude"
+
+# Translate model attribute names. Used in Model.human_attribute_name(attribute).
+#attributes:
+# For example,
+#   user:
+#     login: "Handle"
+# will translate User attribute "login" as "Handle"

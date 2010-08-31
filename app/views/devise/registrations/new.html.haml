@@ -1,0 +1,14 @@
+%h2 Registrarse
+
+.span-10
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %fieldset
+      =f.input :email
+      =f.input :password
+      =f.input :password_confirmation
+      =f.submit "Registrar"
+
+.clear
+    
+= render :partial => "devise/shared/links"

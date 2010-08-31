@@ -1,0 +1,8 @@
+%h1
+  = "Modificar perfil de #{@profile}"
+
+= render 'form'
+
+= link_to 'Ver', @profile
+\|
+= link_to 'Regresar', profiles_path

@@ -1,0 +1,19 @@
+%h1 Listing mbas
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @mbas.each do |mba|
+    %tr
+      %td= mba.name
+      %td= link_to 'Show', mba
+      %td= link_to 'Edit', edit_mba_path(mba)
+      %td= link_to 'Destroy', mba, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New mba', new_mba_path

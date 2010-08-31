@@ -1,0 +1,13 @@
+= form_for @function do |f|
+  -if @function.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@function.errors.count, "error")} prohibited this function from being saved:"
+      %ul
+        - @function.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

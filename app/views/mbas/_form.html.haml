@@ -1,0 +1,13 @@
+= form_for @mba do |f|
+  -if @mba.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@mba.errors.count, "error")} prohibited this mba from being saved:"
+      %ul
+        - @mba.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

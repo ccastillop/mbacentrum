@@ -1,0 +1,30 @@
+%h1 
+  Bienvenido
+  = current_user
+%p 
+  %strong mbaCentrum.com
+  es una red de egresados y estudiantes de MBA de la escuela de negocios de la PUCP. 
+  Buscamos tener una fotografía de los compañeros por promoción e ir más allá,
+  manteniendo una red de contactos que en el futuro nos integre mejor.
+  El requisito único e indispensable para pertenecer a la red ser estudiante o egresado
+  de algún MBA de Centrum.
+%p
+  Por favor 
+  = link_to "Regístrese", new_user_registration_path
+  y luego complete su perfil. A continuación validaremos su información 
+  y le comunicaremos oportunamente apenas sea aprobada la solicitud.
+  Si ya está registrado puede 
+  = link_to "iniciar sesión", new_user_session_path
+%p
+  Los usuarios podrán ver los datos de sus compañeros de promoción y 
+  la información que cada uno desee compartir en la red.
+  También podrán convocar a eventos, enviar mensajes a la promoción y algunas otras facilidades
+  que se implementarán según se demanden. 
+%p
+  %strong Nota:
+  Esta es una iniciativa particular e independiente, no relacionada con la Universidad Católica 
+  ni con su escuela de negocios (Centrum). 
+%p
+  Desarrollada por 
+  = link_to "Cristian Castillo", "http://cristiancastillo.com" 
+  del MBA 25G

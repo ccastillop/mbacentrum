@@ -1,0 +1,33 @@
+%h1
+  ="Datos de #{@profile}"
+%p
+  %b Fecha de nacimiento:
+  = @profile.birthday
+%p
+  %b Emails:
+  = @profile.email
+%p
+  %b Teléfonos:
+  = @profile.telephones
+%p
+  %b Acerca de:
+  = @profile.about
+%p
+  %b MBA:
+  = @profile.mba
+%p
+  %b Trabajo:
+  = @profile.work
+%p
+  %b Cargo:
+  = @profile.title
+%p
+  %b Área:
+  = @profile.function
+%p
+  %b Nivel:
+  = @profile.level
+
+= link_to 'Modificar', edit_profile_path(@profile)
+\|
+= link_to 'Regresar', profiles_path

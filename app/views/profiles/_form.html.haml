@@ -1,0 +1,25 @@
+.span-10
+  = simple_form_for @profile do |f|
+    -if @profile.errors.any?
+      #errorExplanation
+        %p.error= "Ocurrieron #{pluralize(@profile.errors.count, "error")}"
+    %fieldset
+      = f.input :first_name
+      = f.input :last_name
+      = f.label :birthday
+      = f.text_field :birthday, :datepicker=>true, :min=>'-75Y', :max => '-25Y'
+      = f.input :gender,:as => :radio, :collection => %w(Masculino Femenino)
+      = f.input :email, :hint=>"Si son varios emails, separados por comas"
+      = f.input :telephones, :hint=>"Si son varios teléfonos, separados por comas"
+      = f.input :about
+      = f.association :mba
+      = f.label :work_id, "Empresa"
+      = f.hidden_field :work_id
+      = text_field_tag :work_name, @profile.work, :autocomplete => autocomplete_work_name_profiles_path, :id_element => "#profile_work_id", :size => "50" 
+      = f.input :title
+      = f.association :function
+      = f.association :level
+      .actions
+        = f.submit "Registrar"
+.clear
+

@@ -1,0 +1,13 @@
+= form_for @work do |f|
+  -if @work.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@work.errors.count, "error")} prohibited this work from being saved:"
+      %ul
+        - @work.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

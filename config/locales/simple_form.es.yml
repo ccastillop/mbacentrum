@@ -1,0 +1,33 @@
+es:
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Se encontraron errores: por favor revise"
+    # Labels and hints examples
+    # labels:
+    #   profile:
+    #     last_name: 'Apellidos'
+    #     first_name: 'Nombre'
+    #     gender: 'Sexo'
+    #     birthday: 'F. nacimiento'
+    #     work_id: 'Empresa o trabajo'
+    #     title: "Cargo"
+    #     about: "Ahora estoy..."
+    #     function: "Área funcional"
+    #     level: "nivel jerárquico"
+    #   user:
+    #     new:
+    #       email: 'E-mail para efectuar o sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+
