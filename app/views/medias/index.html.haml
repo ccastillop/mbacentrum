@@ -21,7 +21,7 @@
     %tr
       %td= image_tag(media.archivo.url(:thumb))
       %td= media.nombre
-      %td= media.user
+      %td= link_to media.user, media.user.profile
       %td= media.descripcion
       %td= media.tipo
       %td= media.archivo_file_name

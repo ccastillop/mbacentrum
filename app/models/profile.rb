@@ -7,6 +7,8 @@ class Profile < ActiveRecord::Base
   before_save :email_default
   has_paper_trail
 
+  # => validate :has_only_one_profile?
+
   validates_presence_of :first_name, :last_name, :level_id, :birthday, 
     :function_id, :mba_id, :gender, :work_id
 
@@ -22,6 +24,10 @@ class Profile < ActiveRecord::Base
         self.email = self.user.email
       end    
       logger.info "email = #{self.email}"
+    end
+    
+    def has_only_one_profile?
+      errors.add(:name, "Usted ya tiene un perfil, sólo puede crear uno.") unless Profile.find_by_user_id(self.user.id)
     end
 
 end

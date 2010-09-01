@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   
   #Muestro toda la actividad del sitio
   def activity
-    @activities = Version.all(:limit => 20)
+    @activities = Version.all(:limit => 20,:conditions => "whodunnit<>'0'")
+    
   end
   
 end

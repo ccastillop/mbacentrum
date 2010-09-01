@@ -1,6 +1,19 @@
-%h1 Atividad reciente
+%h1 Actividades
+
+%p
+  Acceso sólo para estudiantes y egresados de la escuela de negocios de la Universidad Católica (Centrum).
 
 - @activities.each do |act|
 
   %p
-    = "#{act.user} #{act.event} #{act.item}"
+    - begin
+      - u = User.find(act.whodunnit.to_i)
+      = link_to u, u.profile
+      = " #{act.event} "
+      %strong= "#{act.item.class.name} "
+      - if act.item.is_a?(Media)
+        = link_to image_tag(act.item.archivo.url(:thumb)), act.item
+      - else
+        = link_to act.item, act.item
+    - rescue
+      
