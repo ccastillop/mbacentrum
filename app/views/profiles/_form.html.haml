@@ -3,6 +3,9 @@
     -if @profile.errors.any?
       #errorExplanation
         %p.error= "Ocurrieron #{pluralize(@profile.errors.count, "error")}"
+        %ul
+          - @profile.errors.full_messages.each do |msg|
+            %li= msg
     %fieldset
       = f.input :first_name
       = f.input :last_name

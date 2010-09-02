@@ -15,8 +15,6 @@ class Profile < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
-  
-
 
   private
     def email_default
