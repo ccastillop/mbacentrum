@@ -15,7 +15,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-gem 'inploy', :git=>"git://github.com/ccastillop/inploy.git"
+# gem 'inploy', :git=>"git://github.com/ccastillop/inploy.git"
 
 # To use debugger
 # gem 'ruby-debug'

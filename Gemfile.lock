@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ccastillop/inploy.git
-  revision: a9e94b6
+  revision: df09974
   specs:
     inploy (1.6.8)
 

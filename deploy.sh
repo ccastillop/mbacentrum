@@ -1,0 +1,1 @@
+rvm 1.8.7@rails3rc && cd /home/ccastillo/apps/mbacentrum.com && kill -HUP `cat tmp/pids/unicorn.pid` && bundle install --without development test && RAILS_ENV=production rake db:migrate && RAILS_ENV=production unicorn_rails -c config/unicorn.rb -D

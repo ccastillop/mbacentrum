@@ -1,0 +1,1 @@
+rvm 1.8.7@rails3rc && cd /home/ccastillo/apps && git clone --depth 1 git://github.com/ccastillop/mbacentrum.git mbacentrum.com && cd mbacentrum.com && bundle install ~/.bundle --without development test && RAILS_ENV=production rake db:migrate && RAILS_ENV=production unicorn_rails -c config/unicorn.rb -D
