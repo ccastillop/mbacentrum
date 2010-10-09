@@ -6,14 +6,17 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   before_save :email_default
   has_paper_trail
-
-  # => validate :has_only_one_profile?
-
+  belongs_to :retrato, :class_name => "Media", :foreign_key => "media_id"
+  validate :has_only_one_profile?, :on => :create, :message => "Usted ya tiene un perfil, sólo puede crear uno."
   validates_presence_of :first_name, :last_name, :level_id, :birthday, 
     :function_id, :mba_id, :gender, :work_id
 
-  def to_s
+  def name
     "#{first_name} #{last_name}"
+  end
+  
+  def to_s
+    name
   end
 
   private
@@ -25,7 +28,7 @@ class Profile < ActiveRecord::Base
     end
     
     def has_only_one_profile?
-      errors.add(:name, "Usted ya tiene un perfil, sólo puede crear uno.") unless Profile.find_by_user_id(self.user.id)
+      errors.add(:first_name, "Usted ya tiene un perfil, sólo puede crear uno.") if Profile.find_by_user_id(self.user.id)
     end
 
 end

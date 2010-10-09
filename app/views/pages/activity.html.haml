@@ -1,10 +1,6 @@
-%h1 Actividades
-
-%p
-  Acceso sólo para estudiantes y egresados de la escuela de negocios de la Universidad Católica (Centrum).
+%h1 Actividad del grupo
 
 - @activities.each do |act|
-
   %p
     - begin
       - u = User.find(act.whodunnit.to_i)

@@ -5,12 +5,15 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+puts "Creando MBAs"
 mba = Mba.create([
   {:name => 'MBA G 24'},
   {:name => 'MBA G 25'},
   {:name => 'MBA G 26'},
   {:name => 'MBA G 27'}]
 )
+
+puts "Creando Niveles"
 levels = Level.create([
   {:name => "Independiente / Asesor / Consultor"},
   {:name => "Director / Empresario"},
@@ -20,6 +23,8 @@ levels = Level.create([
   {:name  => "Asistente"},
   {:name  => "Otro"}] 
 )
+
+puts "Creando Funciones"
 functions = Function.create([
   {:name => "Consultoría o asesoría empresarial"},
   {:name  => "Directorio o gobierno corporativo"},
@@ -35,7 +40,20 @@ functions = Function.create([
   {:name => "Legal"},
   {:name => "Otro"}]
 )
+
+puts "Creando trabajos"
 works = Work.create([
   {:name => "Independiente / Freelance"},
-  {:name => "Sabático"}]
+  {:name => "Libre y Sabático"}]
+)
+
+puts "Creando usuarios"
+users = User.create([
+  {:email=>"ccastillop@gmail.com",:role=>"admin",
+    :password=>"lima1234",:password_confirm=>"lima1234"},
+  {:email=>"user@gmail.com",:role=>"user",
+    :password=>"lima1234",:password_confirm=>"lima1234"},
+  {:email=>"user2@gmail.com",
+    :password=>"lima1234",:password_confirm=>"lima1234"}
+    ]
 )

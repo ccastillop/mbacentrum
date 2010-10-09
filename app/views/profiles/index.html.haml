@@ -1,41 +1,7 @@
-%h1 Personas registradas
+%h1 
+  = @profiles.count
+  Personas registradas
 
-%table
-  %tr
-    %th Nombre
-    %th Apellidos
-    %th Nacimiento
-    %th Sexo
-    %th Email
-    %th Teléfonos
-    %th Acerca de
-    %th MBA
-    %th Trabajo
-    %th Cargo
-    %th Función
-    %th Nivel
-    %th
-    %th
-    %th
-
-  - @profiles.each do |profile|
-    %tr
-      %td= profile.first_name
-      %td= profile.last_name
-      %td= profile.birthday
-      %td= profile.gender
-      %td= profile.email
-      %td= profile.telephones
-      %td= profile.about
-      %td= profile.mba_id
-      %td= profile.work_id
-      %td= profile.title
-      %td= profile.function_id
-      %td= profile.level_id
-      %td= link_to 'Ver', profile
-      %td= link_to 'Modificar', edit_profile_path(profile)
-      %td= link_to 'Eliminar', profile, :confirm => '¿Estás seguro?', :method => :delete
+= render @profiles
 
 %br
-
-= link_to 'Nuevo perfil', new_profile_path

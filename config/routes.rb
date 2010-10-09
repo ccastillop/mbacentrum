@@ -1,7 +1,10 @@
 Mbacentrum::Application.routes.draw do
 
+  resources :comentarios
+
   resources :medias do
     get :autocomplete_tipo, :on => :collection
+    put :retrato
   end
 
   resources :works

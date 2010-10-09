@@ -1,4 +1,4 @@
-DESTINO="ccastillo@mbacentrum.com:/home/ccastillo/apps/mbacentrum.com"
+DESTINO="ccastillo@mbacentrum.com:/home/ccastillo/apps/mbacentrum"
 if test $1 = "go"
 then
 echo "sincronizando relojes pero de verdad "
@@ -11,6 +11,6 @@ rsync -azvr --force --delete --dry-run --exclude-from=rsync_exclude.txt ./ $DEST
 fi
 
 #ejecuto comando remoto para iniciar el server
-ssh -A ccastillo@mbacentrum.com '/home/ccastillo/apps/mbacentrum.com/deploy.sh'
+# ssh -A ccastillo@mbacentrum.com '/home/ccastillo/apps/mbacentrum.com/deploy.sh'
 curl -s "http://mbacentrum.com"
 

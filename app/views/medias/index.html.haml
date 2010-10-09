@@ -1,6 +1,6 @@
 %h1 Fotos y Archivos
 
-%p= link_to 'Crear nuevo', new_media_path
+%p= link_to 'Subir archivo', new_media_path
 
 %table
   %tr
@@ -9,25 +9,17 @@
     %th Por
     %th Descripcion
     %th Tipo
-    %th Archivo file name
-    %th Archivo content type
-    %th Archivo file size
-    %th Archivo updated at
-    %th
-    %th
     %th
 
   - @medias.each do |media|
     %tr
-      %td= image_tag(media.archivo.url(:thumb))
+      %td= link_to image_tag(media.archivo.url(:thumb)), media
       %td= media.nombre
       %td= link_to media.user, media.user.profile
       %td= media.descripcion
       %td= media.tipo
-      %td= media.archivo_file_name
-      %td= media.archivo_content_type
-      %td= media.archivo_file_size
-      %td= media.archivo_updated_at
-      %td= link_to 'Show', media
-      %td= link_to 'Edit', edit_media_path(media)
-      %td= link_to 'Destroy', media, :confirm => 'Are you sure?', :method => :delete
+      %td{:id=>"marcar_retrato_#{media.id}"}
+        - if can?(:manage, media) and media != current_user.profile.retrato
+          = form_for(media, :url=>media_retrato_path(media), :remote=>true) do |f|
+            = f.submit "Marcar como retrato"
+

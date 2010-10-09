@@ -1,16 +1,20 @@
-= simple_form_for @media, :html => { :multipart => true } do |f|
-  -if @media.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@media.errors.count, "error")} prohibited this media from being saved:"
-      %ul
-        - @media.errors.full_messages.each do |msg|
-          %li= msg
+.span-10
+  = simple_form_for @media, :html => { :multipart => true } do |f|
+    -if @media.errors.any?
+      #errorExplanation
+        %h2= "#{pluralize(@media.errors.count, "error")} prohibited this media from being saved:"
+        %ul
+          - @media.errors.full_messages.each do |msg|
+            %li= msg
+    = f.input :archivo
+    %hr
+    %p Datos opcionales:
+    = f.input :nombre
+    = f.input :descripcion
+    = f.label :tipo
+    = text_field_tag :media_tipo, @media.tipo, :autocomplete => autocomplete_tipo_medias_path, :size => "50"
 
-  = f.input :nombre
-  = f.input :descripcion
-  = f.label :tipo
-  = text_field_tag :media_tipo, @media.tipo, :autocomplete => autocomplete_tipo_medias_path, :size => "50"
-  = f.input :archivo
 
-  .actions
-    = f.submit 'Save'
+    .actions
+      = f.submit 'Save'
+.clear

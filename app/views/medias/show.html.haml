@@ -1,31 +1,19 @@
 
 %p
-  %b Nombre:
-  = @media.nombre
+  %b Archivo de:
+  = @media.user
 %p
   = image_tag(@media.archivo.url(:normal))
 %p
-  %b Descripcion:
+  %b= @media.nombre
   = @media.descripcion
 %p
-  %b Tipo:
-  = @media.tipo
-%p
-  %b Por:
-  = @media.user
-%p
-  %b Archivo file name:
-  = @media.archivo_file_name
-%p
-  %b Archivo content type:
-  = @media.archivo_content_type
-%p
-  %b Archivo file size:
-  = @media.archivo_file_size
-%p
-  %b Archivo updated at:
+  %b creado:
   = @media.archivo_updated_at
 
-= link_to 'Edit', edit_media_path(@media)
+= link_to 'Regresar', medias_path
 \|
-= link_to 'Back', medias_path
+- if can? :manage, @media
+  = link_to "Modificar", edit_media_path(@media)
+  \|
+  = link_to 'Eliminar', @media, :confirm => 'Are you sure?', :method => :delete

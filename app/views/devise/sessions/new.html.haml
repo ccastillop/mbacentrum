@@ -1,6 +1,9 @@
 %p
-  Grupo de estudiantes y egresados de la escuela de negocios de la Universidad Católica (Centrum).
-.span-10
+  Grupo de estudiantes y egresados de la escuela de negocios de la Universidad Católica (Centrum). 
+  = link_to "Más...", about_path
+
+.span-9
+
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %fieldset
       %h2 Inicie sesión
@@ -8,21 +11,23 @@
       = f.input :password
       - if devise_mapping.rememberable?
         = f.input :remember_me, :as => :boolean, :label => "Recordarme" 
-  
       = f.submit "Iniciar sesión"
 
-  %p
-    = render :partial => "devise/shared/links"
-    |
-    = link_to "Acerca de...", about_path
 
-.span-4.large
+.span-6.large
   %p
   %p
   %h1{:style=>"text-align:center"} Ó
-.span-10.last
+  
+.span-8.last
+
   %p
   %p
-  %p Si ya tienes cuenta en Facebook
-  = link_to image_tag("login-button.png",:alt => "Login with facebook"), user_fb_auth_path
+  %fieldset
+    %p Si ya tiene cuenta en Facebook
+    = link_to image_tag("login_facebook.png",:alt => "Login with facebook"), user_fb_auth_path
+  %p
+  %p 
+    ¿Aún no se ha registrado?
+    = render :partial => "devise/shared/links"
 

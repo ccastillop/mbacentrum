@@ -43,6 +43,11 @@ class MediasController < ApplicationController
   def create
     respond_to do |format|
       if @media.save
+        p = current_user.profile
+        unless p.retrato
+          p.media_id = @media.id
+          p.save
+        end
         format.html { redirect_to(@media, :notice => 'Media was successfully created.') }
         format.xml  { render :xml => @media, :status => :created, :location => @media }
       else
@@ -91,8 +96,26 @@ class MediasController < ApplicationController
     render :json => r
   end
   
+  def retrato
+    @media = Media.find params[:media_id]
+    begin
+      if current_user == @media.user or current_user.admin?
+        profile = @media.user.profile
+        profile.retrato = @media
+        profile.save!
+      end
+    rescue Exception => e
+      
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(medias_url) }
+      format.js {render :content_type => 'text/javascript'}
+    end
+  end
+  
   private
-    #para cuando el usuario no tiene aun perfil
+    #para cuando el usuario no tiene aun media
     def new_media?
       @media = Media.new(params[:media])
       @media.user = current_user

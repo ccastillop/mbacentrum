@@ -9,10 +9,18 @@ class User < ActiveRecord::Base
   
   has_one :profile
   has_many :medias
-  
+
   def to_s
     return email unless profile
     return profile.to_s
+  end
+  
+  def admin?
+    role == "admin"
+  end
+
+  def user?
+    role == "user"
   end
   
 end
