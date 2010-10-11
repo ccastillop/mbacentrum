@@ -7,6 +7,12 @@ module LayoutHelper
     content_for(:title) { page_title.to_s }
     @show_title = show_title
   end
+
+  def description( d= "Red de egresados y estudiantes de MBA de la escuela de negocios PUCP Centrum")
+    content_for(:head) {
+      tag(:meta, :name => "description", :content=>h(d) )
+    }
+  end
   
   def show_title?
     @show_title
