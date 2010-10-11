@@ -31,6 +31,9 @@
           %ul
             - if user_signed_in?
               %li= "Bienvenido #{current_user}"
+              %li= link_to "INVITAR", new_user_invitation_path
+              - if can? :manage, User
+                %li= link_to "Usuarios", users_path
               %li= link_to "Cuenta", edit_user_registration_path
               %li= link_to "Perfil", (current_user.profile ? current_user.profile : new_profile_path  )
               %li= link_to "Salir", destroy_user_session_path
@@ -40,7 +43,7 @@
         .clear
         %nav
           %ul
-            %li= link_to "Inicio", root_path
+            %li= link_to "Actividad", activity_path
             %li= link_to "Personas", profiles_path
             %li= link_to "MBAs", mbas_path
             %li= link_to "Fotos & Archivos", medias_path

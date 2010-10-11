@@ -9,7 +9,10 @@
       %strong= "#{act.item.class.name} "
       - if act.item.is_a?(Media)
         = link_to image_tag(act.item.archivo.url(:thumb)), act.item
+      - elsif act.item.is_a?(Comentario)
+        = link_to truncate(act.item.texto), act.item.comentable
       - else
-        = link_to act.item, act.item
+        = link_to act.item.to_s, act.item
     - rescue
       
+    

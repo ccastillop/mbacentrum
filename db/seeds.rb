@@ -49,11 +49,18 @@ works = Work.create([
 
 puts "Creando usuarios"
 users = User.create([
-  {:email=>"ccastillop@gmail.com",:role=>"admin",
+  {:email=>"ccastillop@gmail.com",
     :password=>"lima1234",:password_confirm=>"lima1234"},
-  {:email=>"user@gmail.com",:role=>"user",
+  {:email=>"user@gmail.com",
     :password=>"lima1234",:password_confirm=>"lima1234"},
   {:email=>"user2@gmail.com",
-    :password=>"lima1234",:password_confirm=>"lima1234"}
-    ]
+    :password=>"lima1234",:password_confirm=>"lima1234"},
+  {:email=>"user3@gmail.com",
+    :password=>"lima1234",:password_confirm=>"lima1234"}]
 )
+users[0].role=User::ROLES[2]
+users[0].save!
+users[1].role=User::ROLES[1]
+users[1].save!
+users[2].role=User::ROLES[0]
+users[2].save!

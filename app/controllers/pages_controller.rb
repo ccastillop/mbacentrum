@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   
   #Muestro toda la actividad del sitio
   def activity
-    @activities = Version.all(:limit => 20,:conditions => "whodunnit<>'0' and event <> 'destroy' and object is not null")
+    @activities = Version.where("whodunnit<>'0' and event <> 'destroy'").limit(20).order("created_at desc")
   end
   
 end

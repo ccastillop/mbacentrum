@@ -168,3 +168,10 @@ es-PE:
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
+
+  unauthorized:
+    manage:
+      all: "Aún no ha sido autorizado para %{action} %{subject}. Por favor contáctenos"
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."

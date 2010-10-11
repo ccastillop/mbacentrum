@@ -1,4 +1,6 @@
 class ComentariosController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /comentarios
   # GET /comentarios.xml
   def index
@@ -41,10 +43,12 @@ class ComentariosController < ApplicationController
   # POST /comentarios.xml
   def create
     @comentario = Comentario.new(params[:comentario])
-
+    @comentario.user = current_user
+    @comentario.comentable = get_parent
     respond_to do |format|
       if @comentario.save
-        format.html { redirect_to(@comentario, :notice => 'Comentario was successfully created.') }
+        ComentarioMailer.notifica(@comentario)
+        format.html { redirect_to(@comentario.comentable, :notice => 'Comentario was successfully created.') }
         format.xml  { render :xml => @comentario, :status => :created, :location => @comentario }
       else
         format.html { render :action => "new" }
@@ -60,7 +64,7 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.update_attributes(params[:comentario])
-        format.html { redirect_to(@comentario, :notice => 'Comentario was successfully updated.') }
+        format.html { redirect_to(@comentario.comentable, :notice => 'Comentario was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,8 +80,20 @@ class ComentariosController < ApplicationController
     @comentario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comentarios_url) }
+      format.html { redirect_to(@comentario.comentable) }
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def get_parent
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          t = $1.classify
+          t = "Media" if t == "Medium"
+          return t.constantize.find(value)            
+        end
+      end
+      nil
+    end
 end

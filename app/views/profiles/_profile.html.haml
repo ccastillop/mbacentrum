@@ -1,22 +1,27 @@
-.grid-5
-  = link_to( image_tag(profile.retrato.archivo.url(:short)), profile) if profile.retrato
-  = link_to( "Agregar Foto", new_media_path) unless profile.retrato
-.grid-9
-  %p
-    = link_to profile.name, profile
-    %em= profile.email
-    = profile.telephones
-    %em Cumpleaños: 
-    = profile.birthday
-    %br
-    = profile.mba
-    %em Trabajo:
-    = profile.work
-    = profile.title
-    = profile.function
-    = profile.level
+- if can? :read, profile
+  .grid-5
+    = link_to( image_tag(profile.retrato.archivo.url(:short)), profile) if profile.retrato
+    = link_to( "Agregar Foto", new_media_path) unless profile.retrato
+  .grid-9
+    %p
+      = link_to profile.name, profile
+      %em= profile.email
+      = profile.telephones
+      %em Cumpleaños: 
+      = profile.birthday
+      %br
+      = profile.mba
+      %em Trabajo:
+      = profile.work
+      = profile.title
+      = profile.function
+      = profile.level
+- else
+  Aún sin acceso, no puede ver este perfil. Por favor contáctenos.
+
   %p= profile.about
-  - if can? :manage, profile
-    %p= link_to 'Modificar', edit_profile_path(profile)
-    %p= link_to 'Eliminar', profile, :confirm => '¿Estás seguro?', :method => :delete
+  - if can? :update, profile
+    = link_to 'Modificar', edit_profile_path(profile)
+    |
+    = link_to 'Eliminar', profile, :confirm => '¿Estás seguro?', :method => :delete
 .clear

@@ -1,0 +1,10 @@
+%h2 
+  = "Comentarios (#{comentable.comentarios.size})"
+
+= render :partial => "comentarios/comentario",  :collection=> comentable.comentarios
+
+
+%h2 Nuevo comentario
+
+- @comentario = comentable.comentarios.build
+= render :partial => "comentarios/form"

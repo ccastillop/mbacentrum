@@ -17,3 +17,6 @@
   = link_to "Modificar", edit_media_path(@media)
   \|
   = link_to 'Eliminar', @media, :confirm => 'Are you sure?', :method => :delete
+
+
+= render :partial => "comentarios/comentarios", :locals=>{:comentable=>@media} 

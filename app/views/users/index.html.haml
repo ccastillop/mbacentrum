@@ -1,0 +1,15 @@
+- title "Users"
+
+%table
+  %tr
+    %th Email
+    %th Perfil
+    %th Nivel
+  - for user in @users
+    %tr
+      %td= user.email
+      %td= link_to(user.profile, user.profile) if user.try(:profile)
+      %td= user.role
+      %td= link_to 'Cambiar email o clave o nivel', edit_user_path(user)
+      %td= link_to 'Eliminar', user, :confirm => 'Are you sure?', :method => :delete
+

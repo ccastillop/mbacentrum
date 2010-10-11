@@ -1,0 +1,8 @@
+%h1 
+ = "Modificando comentario sobre #{@comentario.comentable}"
+
+= render 'form'
+
+= link_to 'Mostrar', [@comentario.comentable,@comentario] 
+|
+= link_to 'Regresar', @comentario.comentable

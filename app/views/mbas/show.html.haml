@@ -5,3 +5,5 @@
 = link_to 'Edit', edit_mba_path(@mba)
 \|
 = link_to 'Back', mbas_path
+
+= render :partial => "comentarios/comentarios", :locals=>{:comentable=>@mba}

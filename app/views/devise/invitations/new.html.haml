@@ -1,0 +1,18 @@
+.span-12
+  %h2 Enviar invitación
+  %p 
+    Puede invitar a amigos a unirse a la red MBAcentrum.
+    %br 
+    Por favor solo invite a alumnos o egresados de Centrum Católica.
+    %br 
+    El administrador de su promoción podrá retirar a las personas que no cumplan con este requisito.
+    Además el administrador autorizará el acceso.
+
+  = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :post } do |f| 
+    = devise_error_messages! 
+    %p= f.label :email 
+    %p= f.text_field :email 
+    %p= f.submit "Enviar invitación" 
+.clear
+= link_to "Regresar al HOME", after_sign_in_path_for(resource_name) 
+

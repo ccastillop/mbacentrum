@@ -1,5 +1,6 @@
 class FunctionsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /functions
   # GET /functions.xml
   def index

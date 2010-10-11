@@ -1,0 +1,14 @@
+.span-10
+  = simple_form_for([@comentario.comentable,@comentario]) do |f|
+    - if @comentario.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@comentario.errors.count, "error")} al guardar el comentario"
+        %ul
+        - @comentario.errors.full_messages.each do |msg|
+          %li= msg
+
+    .inputs
+      = f.input :texto, :as=>:text
+    .actions
+      = f.button :submit
+.clear

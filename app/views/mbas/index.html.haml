@@ -9,7 +9,9 @@
 
   - @mbas.each do |mba|
     %tr
-      %td= mba.name
+      %td
+        = mba
+        %sub= "con #{mba.profiles.count} personas"
       %td= link_to 'Show', mba
       %td= link_to 'Edit', edit_mba_path(mba)
       %td= link_to 'Destroy', mba, :confirm => 'Are you sure?', :method => :delete

@@ -1,5 +1,6 @@
 class MbasController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /mbas
   # GET /mbas.xml
   def index

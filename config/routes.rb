@@ -1,31 +1,37 @@
 Mbacentrum::Application.routes.draw do
 
-  resources :comentarios
+  resources :users
 
   resources :medias do
     get :autocomplete_tipo, :on => :collection
     put :retrato
+    resources :comentarios
   end
 
-  resources :works
+  resources :works do
+    resources :comentarios
+  end
 
   resources :functions
 
   resources :levels
 
-  resources :mbas
+  resources :mbas do
+    resources :comentarios
+  end
 
   resources :profiles do
     get :autocomplete_work_name, :on => :collection
+    resources :comentarios
   end
 
   match '/about', :to => "pages#about"
   match '/activity', :to => "pages#activity"
 
-  devise_for :users
+  devise_for :users, :as=>"cuenta"
 
   # You can have the root of your site routed with "root"
-  root :to => "pages#activity"
+  root :to => "pages#about"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -5,6 +5,7 @@ class Profile < ActiveRecord::Base
   belongs_to :work
   belongs_to :user
   before_save :email_default
+  has_many :comentarios, :as=>:comentable
   has_paper_trail
   belongs_to :retrato, :class_name => "Media", :foreign_key => "media_id"
   validate :has_only_one_profile?, :on => :create, :message => "Usted ya tiene un perfil, sólo puede crear uno."
@@ -16,7 +17,7 @@ class Profile < ActiveRecord::Base
   end
   
   def to_s
-    name
+    "#{name}"
   end
 
   private

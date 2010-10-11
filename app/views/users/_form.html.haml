@@ -1,0 +1,11 @@
+.span-10
+  - simple_form_for @user do |f|
+    = f.error_messages
+    = f.input :email
+    = f.input :password
+    = f.hint "Déjalo en blanco para no modificar el password"
+    = f.input :password_confirmation
+    = f.input :role, :label=>"Nivel de Acceso", :collection=>User::ROLES
+    = f.hint "Admin: acceso total, Mba: acceso al grupo, User: sólo ver"
+    = f.submit
+.clear

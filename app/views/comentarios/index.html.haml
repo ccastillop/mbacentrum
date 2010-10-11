@@ -1,0 +1,20 @@
+%h1 Listing comentarios
+%table
+  %tr
+    %th Texto
+    %th User
+    %th Comentable type
+    %th Comentable
+    %th
+    %th
+    %th
+  - @comentarios.each do |comentario|
+    %tr
+      %td= comentario.texto
+      %td= comentario.user_id
+      %td= comentario.comentable_type
+      %td= comentario.comentable_id
+      %td= link_to 'Show', [comentario.comentable, comentario]
+      %td= link_to 'Edit', edit_polimorphyc_path(comentario.comentable, comentario)
+      %td= link_to 'Destroy', [comentario.comentable, comentario], :confirm => 'Are you sure?', :method => :delete
+
