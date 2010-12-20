@@ -1,0 +1,10 @@
+es-PE:
+  devise:
+    invitations:
+      send_instructions: 'Se envió un email de invitación a %{email}.'
+      invitation_token_invalid: 'La clave de invitación resultó inválida'
+      updated: 'Su clave ha sido registrada correctamente. Ha iniciado sesión.'
+    mailer:
+      invitation_instructions:
+        subject: 'Instrucciones para aceptar invitación'
+        
